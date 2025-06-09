@@ -11,13 +11,16 @@ public class Main {
         System.out.println("Informe a lista de pessoas seguindo esse formato 'Nome Pessoa - M, Nome Pessoa Dois - F':");
         String pessoasString = scanner.nextLine();
 
-        List<String> listaMulheres = Arrays.stream(pessoasString.split(","))
-                .map(String::trim)
-                .filter(pessoa -> pessoa.endsWith("F"))
-                .toList();
+        List<String> listaMulheres = filtraListaMulheres(pessoasString);
 
         System.out.println(listaMulheres);
         //Test Name One - M, Test Name Two - F, Test Name Three - M, Test Name Four - F, Test Name Five - F
+    }
 
+    public static List<String> filtraListaMulheres(String arrayDePessoas) {
+        return Arrays.stream(arrayDePessoas.split(","))
+                .map(String::trim)
+                .filter(pessoa -> pessoa.endsWith("F"))
+                .toList();
     }
 }
