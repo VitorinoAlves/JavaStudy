@@ -42,6 +42,7 @@ public class ProdutoDAOTest {
         produto.setDescricao("Produto 1");
         produto.setNome("Produto 1");
         produto.setValor(BigDecimal.TEN);
+        produto.setSetor("Bebidas");
         produtoDao.cadastrar(produto);
         return produto;
     }
@@ -105,5 +106,15 @@ public class ProdutoDAOTest {
         assertTrue(list != null);
         assertTrue(list.size() == 0);
 
+    }
+
+    @Test
+    public void verificaCampoSetorTest() throws MaisDeUmRegistroException, TableException, DAOException, TipoChaveNaoEncontradaException {
+        Produto produto = criarProduto("A7");
+        Assert.assertNotNull(produto);
+        Produto produtoDB = this.produtoDao.consultar(produto.getCodigo());
+        Assert.assertNotNull(produtoDB);
+        Assert.assertEquals(produto.getSetor(), produtoDB.getSetor());
+        excluir(produtoDB.getCodigo());
     }
 }

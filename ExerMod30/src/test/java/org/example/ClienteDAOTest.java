@@ -45,6 +45,7 @@ public class ClienteDAOTest {
         cliente.setEstado("SP");
         cliente.setNumero(10);
         cliente.setTel(1199999999L);
+        cliente.setEmail("test@email.com");
         clienteDao.cadastrar(cliente);
 
         Cliente clienteConsultado = clienteDao.consultar(cliente.getCpf());
@@ -63,6 +64,7 @@ public class ClienteDAOTest {
         cliente.setEstado("SP");
         cliente.setNumero(10);
         cliente.setTel(1199999999L);
+        cliente.setEmail("test@email.com");
         Boolean retorno = clienteDao.cadastrar(cliente);
         Assert.assertTrue(retorno);
 
@@ -83,6 +85,7 @@ public class ClienteDAOTest {
         cliente.setEstado("SP");
         cliente.setNumero(10);
         cliente.setTel(1199999999L);
+        cliente.setEmail("test@email.com");
         Boolean retorno = clienteDao.cadastrar(cliente);
         Assert.assertTrue(retorno);
 
@@ -104,6 +107,7 @@ public class ClienteDAOTest {
         cliente.setEstado("SP");
         cliente.setNumero(10);
         cliente.setTel(1199999999L);
+        cliente.setEmail("test@email.com");
         Boolean retorno = clienteDao.cadastrar(cliente);
         Assert.assertTrue(retorno);
 
@@ -132,6 +136,7 @@ public class ClienteDAOTest {
         cliente.setEstado("SP");
         cliente.setNumero(10);
         cliente.setTel(1199999999L);
+        cliente.setEmail("test@email.com");
         Boolean retorno = clienteDao.cadastrar(cliente);
         Assert.assertTrue(retorno);
 
@@ -143,6 +148,7 @@ public class ClienteDAOTest {
         cliente1.setEstado("SP");
         cliente1.setNumero(10);
         cliente1.setTel(1199999999L);
+        cliente.setEmail("test@emailDois.com");
         Boolean retorno1 = clienteDao.cadastrar(cliente1);
         Assert.assertTrue(retorno1);
 
@@ -162,5 +168,25 @@ public class ClienteDAOTest {
         Collection<Cliente> list1 = clienteDao.buscarTodos();
         assertTrue(list1 != null);
         assertTrue(list1.size() == 0);
+    }
+
+    @Test
+    public void verificaCampoEmailTest() throws MaisDeUmRegistroException, TableException, TipoChaveNaoEncontradaException, DAOException {
+        Cliente cliente = new Cliente();
+        cliente.setCpf(12312312312L);
+        cliente.setNome("Rodrigo");
+        cliente.setCidade("São Paulo");
+        cliente.setEnd("End");
+        cliente.setEstado("SP");
+        cliente.setNumero(10);
+        cliente.setTel(1199999999L);
+        cliente.setEmail("test@email.com");
+        clienteDao.cadastrar(cliente);
+
+        Cliente clienteConsultado = clienteDao.consultar(cliente.getCpf());
+        Assert.assertNotNull(clienteConsultado);
+        Assert.assertEquals(cliente.getEmail(), clienteConsultado.getEmail());
+
+        clienteDao.excluir(cliente.getCpf());
     }
 }

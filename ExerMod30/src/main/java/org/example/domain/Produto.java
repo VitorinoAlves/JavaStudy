@@ -25,6 +25,17 @@ public class Produto implements Persistente {
     @ColunaTabela(dbName = "valor", setJavaName = "setValor")
     private BigDecimal valor;
 
+    @ColunaTabela(dbName = "setor", setJavaName = "setSetor")
+    private String setor;
+
+    public String getSetor() {
+        return setor;
+    }
+
+    public void setSetor(String setor) {
+        this.setor = setor;
+    }
+
     public String getCodigo() {
         return codigo;
     }
