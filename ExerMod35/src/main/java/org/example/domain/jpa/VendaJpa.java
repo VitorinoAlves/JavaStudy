@@ -6,6 +6,7 @@ import org.example.dao.Persistente;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -54,6 +55,10 @@ public class VendaJpa implements Persistente {
     @Column(name = "STATUS_VENDA", nullable = false)
     private Status status;
 
+    public VendaJpa() {
+        produtos = new HashSet<>();
+    }
+
     public String getCodigo() {
         return codigo;
     }
@@ -90,9 +95,9 @@ public class VendaJpa implements Persistente {
         return produtos;
     }
 
-    public void setProdutos(Set<ProdutoQuantidadeJpa> produtos) {
+    /*public void setProdutos(Set<ProdutoQuantidadeJpa> produtos) {
         this.produtos = produtos;
-    }
+    }*/
 
     public Status getStatus() {
         return status;
