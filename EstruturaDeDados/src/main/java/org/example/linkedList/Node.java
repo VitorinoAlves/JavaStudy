@@ -2,11 +2,11 @@ package org.example.linkedList;
 
 public class Node {
     private Integer element;
-    private Node linkedElement;
+    private Node next;
 
     public Node(Integer element, Node linkedElement) {
         this.element = element;
-        this.linkedElement = linkedElement;
+        this.next = linkedElement;
     }
 
     public Node(Integer element) {
@@ -22,18 +22,18 @@ public class Node {
     }
 
     public Node getLinkedElement() {
-        return linkedElement;
+        return next;
     }
 
     public void setLinkedElement(Node linkedElement) {
-        this.linkedElement = linkedElement;
+        this.next = linkedElement;
     }
 
     @Override
     public String toString() {
         return "Node{" +
                 "element=" + element +
-                ", linkedElement=" + linkedElement +
+                ", linkedElement=" + next +
                 '}';
     }
 }

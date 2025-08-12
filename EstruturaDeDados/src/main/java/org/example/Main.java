@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.linkedList.LinkedList;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Testando a pilha");
@@ -33,6 +35,32 @@ public class Main {
         fila.printFIFO();
         System.out.println(fila.front());
         System.out.println(fila.rear());
+
+        System.out.println("Testando LinkedList");
+        LinkedList linkedList = new LinkedList();
+
+        linkedList.push(8);
+        linkedList.push(6);
+        linkedList.push(4);
+        linkedList.push(7);
+        linkedList.push(9);
+        linkedList.printList();
+        System.out.println("--------------------");
+        linkedList.pop();
+        linkedList.pop();
+        linkedList.printList();
+        System.out.println("--------------------");
+        linkedList.push(46);
+        linkedList.push(54);
+        linkedList.push(77);
+        linkedList.insert(2, 2);
+        linkedList.printList();
+        System.out.println("--------------------");
+        linkedList.remove(4);
+        linkedList.printList();
+        System.out.println("--------------------");
+        System.out.println(linkedList.elementAt(3));
+        System.out.println(linkedList.size());
 
     }
 }
